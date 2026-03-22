@@ -2,7 +2,7 @@
 
 Evaluate an artwork image on L1-L5 cultural dimensions using VULCA.
 
-TRIGGER when: user says "evaluate this artwork", "score this image", "check cultural accuracy", "vulca evaluate", provides an image file path and asks for feedback, or asks about cultural quality of an image.
+TRIGGER when: user says "evaluate this artwork", "score this image", "check cultural accuracy", "vulca evaluate", "rate this artwork", "how good is this", provides an image file path and asks for feedback, or asks about cultural quality of an image.
 
 ## Instructions
 
@@ -22,6 +22,7 @@ When the user wants to evaluate an artwork:
 
 Cultural: chinese_xieyi, chinese_gongbi, japanese_traditional, islamic_geometric, watercolor, african_traditional, south_asian, western_academic
 Design: contemporary_art, photography, brand_design, ui_ux_design
+Default: default (general-purpose, auto-detected if tradition not specified)
 
 ## Example
 
