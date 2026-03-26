@@ -1,6 +1,6 @@
 # VULCA Claude Code Plugin
 
-Cultural AI art evaluation + creation tools for Claude Code.
+AI-native cultural art creation organism for Claude Code. Brief-driven Studio pipeline, L1-L5 evaluation with actionable suggestions, Digestion V2 learning system, and 13+ cultural traditions.
 
 ## Install
 
@@ -9,7 +9,12 @@ pip install vulca[mcp]
 claude plugin install vulca-org/vulca-plugin
 ```
 
-## Features
+**For real VLM scoring + image generation** (optional):
+```bash
+export GOOGLE_API_KEY=your-key-here
+```
+
+Mock mode works without any API key.
 
 ### MCP Tools (10 tools)
 
@@ -42,12 +47,36 @@ claude plugin install vulca-org/vulca-plugin
 |-------|-------------|
 | cultural-critic | Deep cross-cultural analysis |
 
+## Studio Pipeline (v0.6.0)
+
+```
+Intent → Concept → Generate → Evaluate → Refine
+  ↑                                        ↓
+  └──── Brief (living creative document) ←─┘
+```
+
+- **LLM intent parsing**: Gemini extracts implicit elements, palette, composition
+- **Dynamic questions**: Domain-adaptive clarifying questions
+- **Natural language updates**: "Put the teapot in the lower center"
+- **Digestion V2**: Learns from your preferences across sessions
+
+### Evaluation Modes
+
+- **strict** (default): Judge mode — scores reflect conformance
+- **reference**: Advisor mode — shows alignment without judgment
+- **fusion**: Compare against multiple traditions at once
+
 ## Requirements
 
 - Python 3.10+
-- `pip install vulca` (v0.5.0+)
+- `pip install vulca` (v0.6.0+)
 - Gemini API key (for real VLM evaluation)
 
 ## License
 
 Apache-2.0
+
+## Links
+
+- SDK: [PyPI](https://pypi.org/project/vulca/) (v0.6.0, 462 tests)
+- Paper: [VULCA Framework](https://aclanthology.org/2025.findings-emnlp/) (EMNLP 2025)
