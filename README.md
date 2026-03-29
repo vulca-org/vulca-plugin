@@ -1,6 +1,6 @@
 # VULCA Claude Code Plugin
 
-AI-native cultural art creation organism for Claude Code. Selective Pipeline, Brief-driven Studio, L1-L5 evaluation with actionable suggestions, Digestion V2 learning system, and 13 cultural traditions.
+AI-native cultural art creation organism for Claude Code. Selective Pipeline, Brief-driven Studio, Layered Generation + Inpainting, L1-L5 evaluation with actionable suggestions, Digestion V2 learning system, and 13 cultural traditions.
 
 ## Install
 
@@ -16,7 +16,7 @@ export GOOGLE_API_KEY=your-key-here
 
 Mock mode works without any API key.
 
-### MCP Tools (11 tools)
+### MCP Tools (13 tools)
 
 | Tool | Description |
 |------|-------------|
@@ -31,8 +31,10 @@ Mock mode works without any API key.
 | **`studio_generate_concepts`** | Generate concept designs |
 | **`studio_select_concept`** | Select + refine concept |
 | **`studio_accept`** | Finalize session + digest |
+| **`inpaint_artwork`** | Inpaint / repaint a region of an artwork |
+| **`analyze_layers`** | Decompose artwork into semantic layers |
 
-### Skills (4 skills)
+### Skills (6 skills)
 
 | Skill | Trigger | Description |
 |-------|---------|-------------|
@@ -40,6 +42,8 @@ Mock mode works without any API key.
 | create | "create artwork" | Cultural artwork generation |
 | tradition | "show me xieyi guide" | Tradition reference lookup |
 | **studio** | "start a studio session" | Brief-driven creative collaboration |
+| **inpaint** | "inpaint this", "fix this region" | Region-based inpainting |
+| **layers** | "analyze layers", "show layer structure" | Semantic layer decomposition |
 
 ### Agents (1 agent)
 
@@ -47,7 +51,22 @@ Mock mode works without any API key.
 |-------|-------------|
 | cultural-critic | Deep cross-cultural analysis |
 
-## Studio Pipeline (v0.7.0)
+### ComfyUI Nodes (8 nodes)
+
+The VULCA ComfyUI integration provides 8 custom nodes for use in ComfyUI workflows:
+
+| Node | Description |
+|------|-------------|
+| `VulcaEvaluate` | L1-L5 cultural evaluation node |
+| `VulcaCreate` | Culturally-guided generation node |
+| `VulcaTradition` | Tradition config loader |
+| `VulcaStudio` | Brief-driven session orchestrator |
+| `VulcaInpaint` | Region inpainting with cultural guidance |
+| `VulcaLayers` | Semantic layer decomposition |
+| `VulcaEvolution` | Weight evolution status reader |
+| `VulcaFeedback` | Explicit feedback injector |
+
+## Studio Pipeline (v0.9.0)
 
 ```
 Intent → Concept → Generate → Evaluate → Refine
@@ -78,5 +97,5 @@ Apache-2.0
 
 ## Links
 
-- SDK: [PyPI](https://pypi.org/project/vulca/) (v0.7.0, 538 tests)
+- SDK: [PyPI](https://pypi.org/project/vulca/) (v0.9.0, 538 tests)
 - Paper: [VULCA Framework](https://aclanthology.org/2025.findings-emnlp/) (EMNLP 2025)

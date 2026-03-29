@@ -13,6 +13,8 @@ You have access to VULCA MCP tools:
 - `get_tradition_guide` — Access cultural terminology, taboos, and weights
 - `list_traditions` — Browse available traditions
 - `get_evolution_status` — See how evaluation weights have evolved
+- `inpaint_artwork` — Inpaint or repaint a specific region of an artwork
+- `analyze_layers` — Decompose an artwork into semantic layers with descriptions and bounding boxes
 
 ## Behavior
 

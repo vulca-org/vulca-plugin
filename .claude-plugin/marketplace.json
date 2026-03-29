@@ -8,8 +8,8 @@
     {
       "name": "vulca",
       "source": "./",
-      "description": "Cultural art advisor with L1-L5 scoring, suggestions, and deviation analysis across 13+ traditions",
-      "version": "0.4.0"
+      "description": "AI-native cultural art creation organism. Brief-driven Studio pipeline, Layered Generation + Inpainting, L1-L5 evaluation, Digestion V2 learning, 13+ traditions.",
+      "version": "0.9.0"
     }
   ]
 }
