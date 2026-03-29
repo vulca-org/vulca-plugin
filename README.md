@@ -34,7 +34,7 @@ Mock mode works without any API key.
 | **`inpaint_artwork`** | Inpaint / repaint a region of an artwork |
 | **`analyze_layers`** | Decompose artwork into semantic layers |
 
-### Skills (6 skills)
+### Skills (9 skills)
 
 | Skill | Trigger | Description |
 |-------|---------|-------------|
@@ -44,6 +44,9 @@ Mock mode works without any API key.
 | **studio** | "start a studio session" | Brief-driven creative collaboration |
 | **inpaint** | "inpaint this", "fix this region" | Region-based inpainting |
 | **layers** | "analyze layers", "show layer structure" | Semantic layer decomposition |
+| **evolution** | "evolution status", "how have weights changed" | View evolved L1-L5 weights + digestion insights |
+| **sync** | "sync data", "push sessions", "pull weights" | Push sessions to cloud, pull evolved context |
+| **resume** | "resume session", "accept/refine/reject artwork" | HITL decision — accept, refine, or reject a paused session |
 
 ### Agents (1 agent)
 

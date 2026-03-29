@@ -1,6 +1,6 @@
 {
   "name": "vulca",
-  "description": "AI-native cultural art creation organism. Brief-driven Studio pipeline, Layered Generation + Inpainting, L1-L5 evaluation, Digestion V2 learning system, and 13+ traditions.",
+  "description": "AI-native cultural art creation organism. 9 skills: evaluate, create, tradition, studio, inpaint, layers, evolution, sync, resume. Brief-driven Studio pipeline, Layered Generation + Inpainting, L1-L5 evaluation, Digestion V2 learning system, and 13+ traditions.",
   "version": "0.9.0",
   "author": {
     "name": "Yu Haorui",
