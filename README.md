@@ -16,7 +16,7 @@ export GOOGLE_API_KEY=your-key-here
 
 Mock mode works without any API key.
 
-### MCP Tools (13 tools)
+### MCP Tools (18 tools)
 
 | Tool | Description |
 |------|-------------|
@@ -26,6 +26,7 @@ Mock mode works without any API key.
 | `get_tradition_guide` | Detailed tradition reference |
 | `resume_artwork` | Resume HITL paused sessions |
 | `get_evolution_status` | Check weight evolution |
+| `sync_data` | Push sessions to cloud, pull evolved context |
 | **`studio_create_brief`** | Create Brief from creative intent |
 | **`studio_update_brief`** | NL update Brief |
 | **`studio_generate_concepts`** | Generate concept designs |
@@ -33,6 +34,10 @@ Mock mode works without any API key.
 | **`studio_accept`** | Finalize session + digest |
 | **`inpaint_artwork`** | Inpaint / repaint a region of an artwork |
 | **`analyze_layers`** | Decompose artwork into semantic layers |
+| **`layers_composite`** | Composite layers back into artwork |
+| **`layers_export`** | Export layers to PSD/PNG with manifest |
+| **`layers_evaluate`** | Evaluate layer quality |
+| **`layers_regenerate`** | Regenerate a specific layer |
 
 ### Skills (9 skills)
 
@@ -54,20 +59,23 @@ Mock mode works without any API key.
 |-------|-------------|
 | cultural-critic | Deep cross-cultural analysis |
 
-### ComfyUI Nodes (8 nodes)
+### ComfyUI Nodes (11 nodes)
 
-The VULCA ComfyUI integration provides 8 custom nodes for use in ComfyUI workflows:
+The VULCA ComfyUI integration provides 11 custom nodes for use in ComfyUI workflows:
 
 | Node | Description |
 |------|-------------|
-| `VulcaEvaluate` | L1-L5 cultural evaluation node |
-| `VulcaCreate` | Culturally-guided generation node |
-| `VulcaTradition` | Tradition config loader |
-| `VulcaStudio` | Brief-driven session orchestrator |
+| `VulcaBrief` | Create creative Brief from intent |
+| `VulcaConcept` | Generate concept variations |
+| `VulcaGenerate` | Full artwork generation |
+| `VulcaEvaluate` | L1-L5 cultural evaluation |
+| `VulcaUpdate` | NL Brief updates |
 | `VulcaInpaint` | Region inpainting with cultural guidance |
-| `VulcaLayers` | Semantic layer decomposition |
+| `VulcaLayersAnalyze` | Semantic layer decomposition |
+| `VulcaLayersComposite` | Composite layers back into artwork |
+| `VulcaLayersExport` | Export layers to PSD/PNG |
 | `VulcaEvolution` | Weight evolution status reader |
-| `VulcaFeedback` | Explicit feedback injector |
+| `VulcaTraditions` | List available traditions |
 
 ## Studio Pipeline (v0.9.0)
 
@@ -91,7 +99,7 @@ Intent → Concept → Generate → Evaluate → Refine
 ## Requirements
 
 - Python 3.10+
-- `pip install vulca` (v0.7.0+)
+- `pip install vulca` (v0.9.0+)
 - Gemini API key (for real VLM evaluation)
 
 ## License
@@ -100,5 +108,5 @@ Apache-2.0
 
 ## Links
 
-- SDK: [PyPI](https://pypi.org/project/vulca/) (v0.9.0, 538 tests)
+- SDK: [PyPI](https://pypi.org/project/vulca/) (v0.9.0, 813 tests)
 - Paper: [VULCA Framework](https://aclanthology.org/2025.findings-emnlp/) (EMNLP 2025)
