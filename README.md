@@ -1,6 +1,6 @@
 # VULCA — Claude Code & Cursor Plugin
 
-Create and evaluate cultural art directly in your AI coding environment. 18 MCP tools, 10 skills, 13 traditions.
+Create and evaluate cultural art directly in your AI coding environment. 23 MCP tools, 10 skills, 13 traditions.
 
 ## Install
 
@@ -25,7 +25,7 @@ For real VLM scoring (optional): `export GOOGLE_API_KEY=your-key`. Mock mode wor
 
 **Claude:** Calls `studio_create_brief` → interactive Brief-driven workflow with concept generation, selection, and refinement.
 
-## MCP Tools (18)
+## MCP Tools (23)
 
 | Tool | Description |
 |------|-------------|
