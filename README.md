@@ -1,6 +1,6 @@
 # VULCA — Claude Code & Cursor Plugin
 
-Create and evaluate cultural art directly in your AI coding environment. 18 MCP tools, 10 skills, 13 traditions.
+Create and evaluate cultural art directly in your AI coding environment. 23 MCP tools, 10 skills, 13 traditions.
 
 ## Install
 
@@ -25,7 +25,7 @@ For real VLM scoring (optional): `export GOOGLE_API_KEY=your-key`. Mock mode wor
 
 **Claude:** Calls `studio_create_brief` → interactive Brief-driven workflow with concept generation, selection, and refinement.
 
-## MCP Tools (18)
+## MCP Tools (23)
 
 | Tool | Description |
 |------|-------------|
@@ -47,6 +47,11 @@ For real VLM scoring (optional): `export GOOGLE_API_KEY=your-key`. Mock mode wor
 | `layers_export` | Export layers to PNG directory with manifest |
 | `layers_evaluate` | Per-layer L1-L5 evaluation |
 | `layers_regenerate` | Regenerate a specific layer |
+| `tool_brushstroke_analyze` | Brushstroke texture energy + direction detection |
+| `tool_composition_analyze` | Rule of thirds, center weight, balance |
+| `tool_whitespace_analyze` | Negative space ratio + distribution |
+| `tool_color_gamut_check` | Saturation profiling + gamut compliance |
+| `tool_color_correct` | Color balance analysis + correction |
 
 ## Skills (10)
 
@@ -77,7 +82,7 @@ For real VLM scoring (optional): `export GOOGLE_API_KEY=your-key`. Mock mode wor
 
 ## Links
 
-- SDK: [PyPI](https://pypi.org/project/vulca/) (v0.9.1, 877 tests)
+- SDK: [PyPI](https://pypi.org/project/vulca/) (v0.9.1, 875 tests)
 - ComfyUI: [comfyui-vulca](https://github.com/vulca-org/comfyui-vulca) (11 nodes)
 - Paper: [VULCA Framework](https://aclanthology.org/2025.findings-emnlp/) (EMNLP 2025)
 
