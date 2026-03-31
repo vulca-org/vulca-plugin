@@ -43,7 +43,7 @@ When the user wants to release a new version:
 5. **Post-release verify ALL 4 repos + PyPI**:
    ```bash
    # GitHub releases (must ALL show v.X.Y.Z Latest)
-   for repo in vulca-org/vulca vulca-org/vulca-plugin vulca-org/comfyui-vulca yha9806/website; do
+   for repo in vulca-org/vulca vulca-org/vulca-plugin vulca-org/comfyui-vulca yha9806/vulca-platform; do
      echo "$repo: $(gh release list -R $repo --limit 1 --json tagName --jq '.[0].tagName')"
    done
 
@@ -58,7 +58,7 @@ When the user wants to release a new version:
    - SDK: https://github.com/vulca-org/vulca/releases/tag/vX.Y.Z
    - Plugin: https://github.com/vulca-org/vulca-plugin/releases/tag/vX.Y.Z
    - ComfyUI: https://github.com/vulca-org/comfyui-vulca/releases/tag/vX.Y.Z
-   - Monorepo: https://github.com/yha9806/website/releases/tag/vX.Y.Z
+   - Monorepo: https://github.com/yha9806/vulca-platform/releases/tag/vX.Y.Z
    - PyPI: https://pypi.org/project/vulca/X.Y.Z/
 
 ## What release.sh Does (12 steps)
@@ -68,7 +68,7 @@ When the user wants to release a new version:
 3. Test count auto-update in READMEs
 4. Consistency verification
 5. Git commit + tag
-6. Push monorepo to origin (yha9806/website)
+6. Push monorepo to origin (yha9806/vulca-platform)
 7. Subtree push vulca-org/vulca
 8. Subtree push vulca-org/vulca-plugin
 9. Subtree push vulca-org/comfyui-vulca
@@ -84,5 +84,5 @@ When the user wants to release a new version:
 - Running twine upload separately
 - Changing version in one file but not others
 - Skipping dry-run on first use
-- Forgetting to push monorepo (yha9806/website)
+- Forgetting to push monorepo (yha9806/vulca-platform)
 - Creating release on some repos but not all 4
