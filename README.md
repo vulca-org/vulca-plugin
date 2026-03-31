@@ -77,12 +77,12 @@ For real VLM scoring (optional): `export GOOGLE_API_KEY=your-key`. Mock mode wor
 ## Requirements
 
 - Python 3.10+
-- `pip install vulca[mcp]` (v0.9.1+)
+- `pip install vulca[mcp]` (v0.9.2)
 - Gemini API key (optional, for real VLM evaluation)
 
 ## Links
 
-- SDK: [PyPI](https://pypi.org/project/vulca/) (v0.9.1, 877 tests)
+- SDK: [PyPI](https://pypi.org/project/vulca/) (v0.9.2)
 - ComfyUI: [comfyui-vulca](https://github.com/vulca-org/comfyui-vulca) (11 nodes)
 - Paper: [VULCA Framework](https://aclanthology.org/2025.findings-emnlp/) (EMNLP 2025)
 
