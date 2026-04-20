@@ -1,11 +1,11 @@
 # VULCA — Claude Code & Cursor Plugin
 
-Agent-native image-editing MCP surface. **21 MCP tools + 1 skill (`/decompose`)** for Claude Code and Cursor. v0.16.1 (tracks vulca SDK v0.16.1; 1446 tests).
+Agent-native image-editing MCP surface. **21 MCP tools + 1 skill (`/decompose`)** for Claude Code and Cursor. v0.17.2 (tracks vulca SDK v0.17.2; 1454 tests).
 
 ## Install
 
 ```bash
-pip install vulca[mcp]==0.16.1
+pip install vulca[mcp]==0.17.2
 claude plugin install vulca-org/vulca-plugin
 ```
 
@@ -53,7 +53,7 @@ For real image generation: either run [ComfyUI](https://github.com/comfyanonymou
 
 - Python 3.10+
 - `uv` installed for the default MCP runner (`uvx --from vulca[mcp] vulca-mcp`)
-- `pip install vulca[mcp]==0.16.1`
+- `pip install vulca[mcp]==0.17.2`
 
 ## License
 

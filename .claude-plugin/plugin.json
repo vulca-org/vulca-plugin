@@ -1,7 +1,7 @@
 {
   "name": "vulca",
   "description": "Agent-native image-editing MCP surface for Claude Code & Cursor. 21 MCP tools + /decompose skill. Powered by vulca SDK.",
-  "version": "0.16.1",
+  "version": "0.17.2",
   "author": {
     "name": "Yu Haorui",
     "email": "yuhaorui48@gmail.com"
