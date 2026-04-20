@@ -1,7 +1,7 @@
 {
   "name": "vulca",
-  "description": "AI-native cultural art creation organism. 9 skills: evaluate, create, tradition, studio, inpaint, layers, evolution, sync, resume. Brief-driven Studio pipeline, Layered Generation + Inpainting, L1-L5 evaluation, Digestion V2 learning system, and 13+ traditions.",
-  "version": "0.9.0",
+  "description": "Agent-native image-editing MCP surface for Claude Code & Cursor. 21 MCP tools + /decompose skill. Powered by vulca SDK.",
+  "version": "0.16.1",
   "author": {
     "name": "Yu Haorui",
     "email": "yuhaorui48@gmail.com"
@@ -10,15 +10,13 @@
   "repository": "https://github.com/vulca-org/vulca-plugin",
   "license": "Apache-2.0",
   "keywords": [
-    "art",
-    "evaluation",
-    "cultural",
+    "agent-native",
+    "claude-code",
+    "anthropic",
+    "decompose",
     "mcp",
     "image-generation",
-    "vlm",
     "l1-l5",
-    "inpaint",
-    "layers",
-    "layered-generation"
+    "layers"
   ]
 }
