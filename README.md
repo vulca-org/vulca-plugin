@@ -1,91 +1,60 @@
 # VULCA — Claude Code & Cursor Plugin
 
-Create and evaluate cultural art directly in your AI coding environment. **21 MCP tools**, 10 skills, 13 traditions. v0.9.2 (1322 tests).
+Agent-native image-editing MCP surface. **21 MCP tools + 1 skill (`/decompose`)** for Claude Code and Cursor. v0.16.1 (tracks vulca SDK v0.16.1; 1446 tests).
 
 ## Install
 
 ```bash
-pip install vulca[mcp]
+pip install vulca[mcp]==0.16.1
 claude plugin install vulca-org/vulca-plugin
 ```
 
-For real VLM scoring (optional): `export GOOGLE_API_KEY=your-key`. Mock mode works without any API key.
+For real image generation: either run [ComfyUI](https://github.com/comfyanonymous/ComfyUI) locally (free) or set `GOOGLE_API_KEY` for Gemini. Mock mode works without either.
 
-## What You Can Do
+## What happens in Claude Code
 
-**You:** *"Evaluate this painting for Chinese xieyi style"*
+**You:** `> /decompose /path/to/painting.jpg`
 
-**Claude:** Calls `evaluate_artwork` → returns L1-L5 scores, rationales, and actionable suggestions.
-
-**You:** *"Create a tea packaging design with mountain landscape"*
-
-**Claude:** Calls `create_artwork` → generates image, evaluates on L1-L5, returns scores + improvement suggestions.
-
-**You:** *"Start a studio session for a Zen garden"*
-
-**Claude:** Calls `studio_create_brief` → interactive Brief-driven workflow with concept generation, selection, and refinement.
+**Claude:** Reads the image with `view_image`, authors a decomposition plan, calls `layers_split(mode="orchestrated", plan=...)`, returns one transparent PNG per entity. Iterates per the skill's 10-branch decision tree if segmentation fails on a specific entity.
 
 ## MCP Tools (21)
 
 | Tool | Description |
 |------|-------------|
-| `evaluate_artwork` | L1-L5 cultural evaluation with suggestions |
-| `create_artwork` | Generate culturally-guided artwork |
-| `list_traditions` | List 13 cultural traditions |
-| `get_tradition_guide` | Detailed tradition reference (weights, terminology, taboos) |
-| `resume_artwork` | Resume HITL paused sessions |
-| `get_evolution_status` | Check evolved weights + digestion insights |
-| `sync_data` | Push sessions to cloud, pull evolved context |
-| `studio_create_brief` | Create Brief from creative intent |
-| `studio_update_brief` | Natural language Brief update |
-| `studio_generate_concepts` | Generate concept designs |
-| `studio_select_concept` | Select + refine concept |
-| `studio_accept` | Finalize session + digest |
+| `generate_image` | Pure image generation (no evaluation loop) |
+| `create_artwork` | Single-pass cultural-guided creation + evaluate |
 | `inpaint_artwork` | Region-based inpainting |
-| `analyze_layers` | Decompose artwork into semantic layers |
-| `layers_composite` | Composite layers back into artwork |
-| `layers_export` | Export layers to PNG directory with manifest |
-| `layers_evaluate` | Per-layer L1-L5 evaluation |
-| `layers_regenerate` | Regenerate a specific layer |
-| `tool_brushstroke_analyze` | Brushstroke texture energy + direction detection |
-| `tool_composition_analyze` | Rule of thirds, center weight, balance |
-| `tool_whitespace_analyze` | Negative space ratio + distribution |
-| `tool_color_gamut_check` | Saturation profiling + gamut compliance |
-| `tool_color_correct` | Color balance analysis + correction |
+| `view_image` | Read image metadata + base64 for the agent |
+| `evaluate_artwork` | L1–L5 cultural scoring against a tradition |
+| `list_traditions` | List all 13 cultural traditions |
+| `get_tradition_guide` | Detailed tradition reference |
+| `search_traditions` | Keyword search across tradition knowledge |
+| `layers_split` | Decompose an image into semantic layers (orchestrated mode for `/decompose`) |
+| `layers_list` | List layers in a session directory |
+| `layers_edit` | Structural edits (add/remove/reorder/toggle/lock/merge/duplicate) |
+| `layers_redraw` | Redraw one layer with new instructions |
+| `layers_transform` | Apply transform ops to a layer |
+| `layers_composite` | Composite layers back into a flat image |
+| `layers_export` | Export to PNG directory with manifest |
+| `layers_evaluate` | Per-layer L1–L5 evaluation |
+| `brief_parse` | Parse a creative brief into structured form |
+| `generate_concepts` | Generate concept sketches from a brief |
+| `archive_session` | Archive a session for later retrieval |
+| `sync_data` | Sync sessions + evolved weights |
+| `unload_models` | Admin: release model memory (MPS/CUDA) |
 
-## Skills (10)
+## Skills (1)
 
 | Skill | Trigger | What it does |
-|-------|---------|-------------|
-| evaluate | "evaluate this painting" | Quick L1-L5 evaluation |
-| create | "create artwork" | Cultural artwork generation |
-| tradition | "show me xieyi guide" | Tradition reference lookup |
-| studio | "start a studio session" | Brief-driven creative collaboration |
-| inpaint | "inpaint this region" | Region-based repaint |
-| layers | "analyze layers" | Semantic layer decomposition |
-| evolution | "evolution status" | View evolved L1-L5 weights |
-| sync | "sync data" | Push sessions, pull evolved context |
-| resume | "resume session" | Accept/refine/reject paused session |
-| release | "release new version" | Automated version release |
-
-## Agent
-
-| Agent | What it does |
-|-------|-------------|
-| cultural-critic | Deep cross-cultural analysis comparing multiple traditions |
+|-------|---------|--------------|
+| `/decompose` | "decompose /path/img.jpg" | Loads SKILL.md, reads image, orchestrates `layers_split`, iterates per decision tree |
 
 ## Requirements
 
 - Python 3.10+
-- `pip install vulca[mcp]` (v0.9.2)
-- Gemini API key (optional, for real VLM evaluation)
-
-## Links
-
-- SDK: [PyPI](https://pypi.org/project/vulca/) (v0.9.2)
-- ComfyUI: [comfyui-vulca](https://github.com/vulca-org/comfyui-vulca) (11 nodes)
-- Paper: [VULCA Framework](https://aclanthology.org/2025.findings-emnlp/) (EMNLP 2025)
+- `uv` installed for the default MCP runner (`uvx --from vulca[mcp] vulca-mcp`)
+- `pip install vulca[mcp]==0.16.1`
 
 ## License
 
-Apache-2.0
+Apache 2.0
