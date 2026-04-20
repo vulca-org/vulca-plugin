@@ -8,8 +8,8 @@
     {
       "name": "vulca",
       "source": "./",
-      "description": "AI-native cultural art creation organism. Brief-driven Studio pipeline, Layered Generation + Inpainting, L1-L5 evaluation, Digestion V2 learning, 13+ traditions.",
-      "version": "0.9.0"
+      "description": "Agent-native image-editing MCP surface for Claude Code & Cursor. 21 MCP tools + /decompose skill.",
+      "version": "0.16.1"
     }
   ]
 }
