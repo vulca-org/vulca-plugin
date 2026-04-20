@@ -38,8 +38,8 @@ For real image generation: either run [ComfyUI](https://github.com/comfyanonymou
 | `layers_export` | Export to PNG directory with manifest |
 | `layers_evaluate` | Per-layer L1–L5 evaluation |
 | `brief_parse` | Parse a creative brief into structured form |
-| `generate_concepts` | Generate concept sketches from a brief |
-| `archive_session` | Archive a session for later retrieval |
+| `generate_concepts` | Generate N concept variation images from a prompt |
+| `archive_session` | Archive a completed session for tradition-learning feedback |
 | `sync_data` | Sync sessions + evolved weights |
 | `unload_models` | Admin: release model memory (MPS/CUDA) |
 
