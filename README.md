@@ -1,11 +1,11 @@
 # VULCA — Claude Code & Cursor Plugin
 
-Agent-native image-editing MCP surface. **21 MCP tools + 1 skill (`/decompose`)** for Claude Code and Cursor. v0.17.2 (tracks vulca SDK v0.17.2; 1454 tests).
+Agent-native image-editing MCP surface. **21 MCP tools + 2 skills (`/decompose`, `/visual-brainstorm`)** for Claude Code and Cursor. v0.17.3 (tracks vulca SDK v0.17.3; 1454 tests).
 
 ## Install
 
 ```bash
-pip install vulca[mcp]==0.17.2
+pip install vulca[mcp]==0.17.3
 claude plugin install vulca-org/vulca-plugin
 ```
 
@@ -43,17 +43,18 @@ For real image generation: either run [ComfyUI](https://github.com/comfyanonymou
 | `sync_data` | Sync sessions + evolved weights |
 | `unload_models` | Admin: release model memory (MPS/CUDA) |
 
-## Skills (1)
+## Skills (2)
 
 | Skill | Trigger | What it does |
 |-------|---------|--------------|
 | `/decompose` | "decompose /path/img.jpg" | Loads SKILL.md, reads image, orchestrates `layers_split`, iterates per decision tree |
+| `/visual-brainstorm` | "visual-brainstorm [topic]" | Turns fuzzy visual intent into a reviewable `proposal.md`. Zero-pixel, Discovery-metadata only. Scoped to 2D illustrative/editorial imagery. See `skills/visual-brainstorm/SKILL.md`. |
 
 ## Requirements
 
 - Python 3.10+
 - `uv` installed for the default MCP runner (`uvx --from vulca[mcp] vulca-mcp`)
-- `pip install vulca[mcp]==0.17.2`
+- `pip install vulca[mcp]==0.17.3`
 
 ## License
 
