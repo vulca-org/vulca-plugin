@@ -43,11 +43,12 @@ For real image generation: either run [ComfyUI](https://github.com/comfyanonymou
 | `sync_data` | Sync sessions + evolved weights |
 | `unload_models` | Admin: release model memory (MPS/CUDA) |
 
-## Skills (1)
+## Skills (2)
 
 | Skill | Trigger | What it does |
 |-------|---------|--------------|
 | `/decompose` | "decompose /path/img.jpg" | Loads SKILL.md, reads image, orchestrates `layers_split`, iterates per decision tree |
+| `/visual-brainstorm` | "visual-brainstorm [topic]" | Turns fuzzy visual intent into a reviewable `proposal.md`. Zero-pixel, Discovery-metadata only. Scoped to 2D illustrative/editorial imagery. See `skills/visual-brainstorm/SKILL.md`. |
 
 ## Requirements
 
