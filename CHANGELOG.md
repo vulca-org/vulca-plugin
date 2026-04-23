@@ -1,5 +1,23 @@
 # Changelog
 
+## v0.17.8 — 2026-04-23
+
+### Changed
+- `skills/visual-plan/SKILL.md` updated to vulca main v0.17.8 — 12 clarity-gap patches folded from v0.17.7 Layer C v2 (8 items) + v0.17.5 Layer B simulated (5 items):
+  - **§Handoff 8 → 9 variants** (Err #16 content-guard abort split from user-interrupt; dedicated variant 9 for downstream grep distinction)
+  - **`evaluate_artwork` dimensions shape pinned** — Phase 3 pseudocode documents the mock flat-float vs live nested-dict contract with unwrap recipe
+  - **MCP metadata agent-hint** in Phase 3 pseudocode — notes mock provider echoes MCP kwargs into `gen_result["metadata"]` for round-trip verification
+  - **Iter `<K>` semantic** paragraph added — aborted variants 7-9 use K = iter_idx that WOULD have run (not last-successful iter)
+  - **Phase 1** tightenings: slug path convention (reject `/` and absolute paths), `FileNotFoundError` traceback guard on Err #1, FIRST-violation precedence on Err #4, Err #3 + fresh-lockfile interaction, stale-lock K=0 semantic
+  - **Phase 2** tightenings: Err #8 Write suppression bolded, "compact form" definition, redundant-Write symmetry note
+  - **Phase 4 step 4** overage_pct negative formatting display rule (`< 0` → `"under budget (-<pct>%)"`)
+
+### Upstream bug fix (not mirrored, informational)
+- vulca main `src/vulca/mcp_server.py` — MCP `generate_image` wrapper now forwards `provider.ImageResult.metadata` to the tool caller. v0.17.6 kwargs echo (into mock's metadata) previously never reached agents because the MCP wrapper dropped metadata. This is a PyPI-side fix only; plugin mirror unaffected (plugins don't ship Python code).
+
+### Backlog
+Clarity-gap backlog from v0.17.5 + v0.17.7 ship-gates: **CLOSED.** All 13 items folded into v0.17.8.
+
 ## v0.17.7 — 2026-04-23
 
 ### Added
