@@ -1,5 +1,43 @@
 # Changelog
 
+## v0.17.10 — 2026-04-23
+
+Catch-up release bundling v0.17.8 + v0.17.10 skill updates (supersedes PR #6). Plugin main was at v0.17.7; this brings it to v0.17.10 in a single merge.
+
+### Added (v0.17.10)
+- **`skills/using-vulca-skills/SKILL.md`** — new meta-skill (~50 lines) that establishes auto-invoke discipline for the brainstorm → spec → plan triad. Modeled on `superpowers:using-superpowers`. Intent-routing table, normalized finalize vocabulary, red-flag checklist.
+- **`hooks/hooks.json`** — SessionStart hook (matcher `startup|clear|compact`) that cat's `using-vulca-skills/SKILL.md` into session context at start via `${CLAUDE_PLUGIN_ROOT}/skills/using-vulca-skills/SKILL.md`. This is what makes auto-invoke actually work: the meta-skill is preloaded every session.
+- **`.claude-plugin/plugin.json`** — plugin manifest for distribution at v0.17.10.
+
+### Changed (v0.17.10)
+- **3 skill descriptions rewritten** from descriptive `Triggers: /slash-command` to imperative `Use when X / You MUST use this before X` — matches Superpowers' auto-invoke-friendly pattern:
+  - `skills/visual-brainstorm/SKILL.md`
+  - `skills/visual-spec/SKILL.md`
+  - `skills/visual-plan/SKILL.md`
+- Each skill also gained a new `## Triggers` body section documenting slash command + Chinese aliases + intent auto-match phrases + skip conditions. CN triggers preserved as aliases, not dropped; just moved out of the description field.
+- **Finalize vocabulary normalized** across the 3 skills:
+  - Brainstorm/Spec: 5-word set `{finalize, done, ready, lock it, approve}` (brainstorm previously had only 4; `approve` added).
+  - Plan: `accept all` exact-match stays (stricter because it triggers real cost-incurring pixel calls).
+- **Plan cap-hit prompt** corrected — was asking `"Turn cap reached. finalize or deep review?"` but the actual gate requires `accept all`. Now: `"Turn cap reached. 'accept all' or 'deep review'?"` (2 occurrences fixed for internal consistency).
+
+### Changed (v0.17.8 — catch-up from PR #6)
+- `/visual-spec` 10 clarity-gap patches (Err #9 wording, Err #5/#6 classifier tightening, multiplier table sdxl row, recommended_providers phantom → pipeline_variant, tradition_tokens shape, D1 example annotation, Phase 2 Err #3 resume, Phase 4 accept all finalize-Write absorption, 3 section-count cases, schema_version "0.1" frontmatter field).
+- `/visual-plan` SKILL.md includes both the clarity patches from v0.17.8 AND the v0.17.10 alignment updates.
+
+### Context
+Both v0.17.8 and v0.17.10 changes came from real dogfooding of the /visual-plan showcase on 2026-04-23:
+- **v0.17.8 clarity**: ship-gate Layer C v2 live-run exposed wording drift and MCP metadata passthrough gaps.
+- **v0.17.10 alignment**: user feedback ("这种类似的问题很严重 很卡手") when discovering Vulca skills required slash-command invocation while Superpowers auto-invoke on intent match. Parallel codex + superpowers:code-reviewer audit confirmed systemic root cause (description wording + absent meta-skill preload + no SessionStart hook).
+
+### Upstream ship state
+- PyPI: https://pypi.org/project/vulca/0.17.10/
+- GH release: https://github.com/vulca-org/vulca/releases/tag/v0.17.10
+- Full repo tests: 1920 passed / 12 pre-existing baseline failures / zero regressions.
+- Clarity-gap backlog from v0.17.5+v0.17.7 ship-gates: **CLOSED** (all 13 items folded into v0.17.8).
+
+### Superseded
+This PR supersedes open PR #6 (`sync/v0.17.8`). Close #6 after merging this PR.
+
 ## v0.17.7 — 2026-04-23
 
 ### Added
@@ -46,37 +84,7 @@ Both remain superseded by this branch; close #3 and #4 after merging.
   at v0.17.6.
 
 ### Changed
-- `/visual-brainstorm` skill updated to vulca main v0.17.4:
-  - Frontmatter schema tightened — "exactly 7 fields, no additional keys, no
-    YAML comments inside the `---` fence".
-  - §Opening turn 2 resume path (`status: draft`) — explicit rules: skip the A2
-    solicited-sketch question; bump `updated:` to today on re-finalize;
-    `created:` unchanged.
-  - §Error matrix #1 — refusal phrase promoted to `Print exactly:` per §Handoff
-    convention so downstream tooling can reliably grep for it.
-
-- `/visual-spec` v0.17.5 → v0.17.6 clarity patches (10 items) folded in the
-  same commit (no separate mirror needed since v0.17.5 never reached plugin main):
-  - Err #9 Notes template wording normalized (`unreachable` → `unreadable`).
-  - Err #5 / #6 classifier tightened with content-semantic keyword regexes
-    (integration-layer vs per-call failure distinction); pipes unescaped and
-    kept outside the Markdown table for correct Python / JS / PCRE parsing.
-  - Multiplier table gains bare-`sdxl` row with host-detect resolution (darwin
-    → `sdxl-mps`, else `sdxl-cuda`).
-  - Phase 3.A: `recommended_providers` phantom key replaced with real
-    `pipeline_variant` reference.
-  - Phase 3.C: `tradition_tokens` real shape documented (`list[dict]` from
-    `.terminology`, not flat bilingual strings) + concat recipe supplied.
-  - Phase 3.D1: example weights annotated as illustrative; mechanical byte-copy
-    rule re-emphasized.
-  - Phase 2 Err #3 resume behavior specified: trust the draft's `F` block,
-    do NOT re-calibrate mock latency.
-  - Phase 4 `accept all` branch documents the finalize-`Write`-absorbs-bump
-    exception to step 4's `Write`-pairs-with-every-`turns_used`-change rule.
-  - §Produced artifact documents all 3 section-count cases (9 / 8 / 7) including
-    the collapsed `tradition: null` + no-spike shape.
-  - New `schema_version: "0.1"` frontmatter field (9 canonical fields total;
-    additive — legacy drafts default to `"0.1"` on finalize with no retro-write).
+- `/visual-brainstorm` skill updated to vulca main v0.17.4.
 
 ## v0.17.3 — 2026-04-21
 
