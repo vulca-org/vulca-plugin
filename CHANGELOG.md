@@ -1,5 +1,36 @@
 # Changelog
 
+## v0.17.7 — 2026-04-23
+
+### Added
+- `/visual-plan` skill — **3rd and final meta-skill** in the
+  `brainstorm → spec → plan → execute` architecture. Completes the triad:
+  - `/visual-brainstorm` (v0.17.3/v0.17.4) produces `proposal.md`
+  - `/visual-spec` (v0.17.5/v0.17.6) resolves into `design.md`
+  - `/visual-plan` (this release) executes → `plan.md` + `iters/*.png` +
+    `plan.md.results.jsonl` → terminal artifact `{completed, partial, aborted}`.
+  See `skills/visual-plan/SKILL.md` (~413 lines). Mirrored byte-identical
+  from vulca main repo `.claude/skills/visual-plan/SKILL.md` at v0.17.7.
+- 4 phases (precondition+derivation → plan-review loop with 5-turn cap →
+  execution loop → finalize + hygiene), 7 invariants S1-S7, 16-row error
+  matrix with verbatim `Print exactly:` strings, 8-variant handoff set.
+
+### Ship-gate status (upstream)
+- Layer A pytest: 57/57 PASS <30s
+- Layer B simulated (3 parallel subagents, 14 cases): **14/14 PASS**
+- Layer C live v2 (2 parallel subagents, 6 gaps / 4 cases): **4/4 PASS**
+- Combined: 18/18 for non-pixel-heavy surface.
+
+### Dependencies
+Requires v0.17.6 (also bundled into this PR) for `generate_image` MCP
+extension (`seed/steps/cfg_scale/negative_prompt` kwargs) + `schema_version`
+field in `design.md` frontmatter.
+
+### Superseded (still active from v0.17.6 bundling)
+This PR now supersedes open plugin PRs #3 (`sync/v0.17.4`
+/visual-brainstorm) and #4 (`sync/v0.17.5` /visual-spec first ship).
+Both remain superseded by this branch; close #3 and #4 after merging.
+
 ## v0.17.6 — 2026-04-23
 
 ### Added
@@ -46,11 +77,6 @@
     the collapsed `tradition: null` + no-spike shape.
   - New `schema_version: "0.1"` frontmatter field (9 canonical fields total;
     additive — legacy drafts default to `"0.1"` on finalize with no retro-write).
-
-### Superseded
-- This PR supersedes open PRs #3 (`sync/v0.17.4` for /visual-brainstorm) and
-  #4 (`sync/v0.17.5` for /visual-spec first ship). Both are bundled into this
-  catch-up release. Close #3 and #4 after merging this PR.
 
 ## v0.17.3 — 2026-04-21
 
