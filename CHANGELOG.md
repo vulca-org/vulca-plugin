@@ -1,5 +1,27 @@
 # Changelog
 
+## v0.17.11 — 2026-04-23
+
+Honesty + quality-of-life patch. Plugin-side changes mirror only the skill updates from vulca main v0.17.11 (code-level provider error normalization + MCP `create_artwork.ref_type` removal + README/BP honesty are shipped in the Python package, not the plugin).
+
+### Added
+- **`skills/visual-brainstorm/SKILL.md`** — **Style-Treatment 7th question-bank dimension** (mandatory, no skip): `additive` (photo preserved, elements painted as distinct objects on top) / `unified` (whole image transformed) / `collage` (visible cut-outs) / `wash` (global style filter). Closes the UX gap exposed by the Scottish-Chinese fusion smoke test where gpt-image-1.5 produced whole-image painterly overlay when user wanted additive treatment.
+- **`skills/visual-brainstorm/SKILL.md`** — `proposal.md` frontmatter now carries `style_treatment` (7 → 8 fields).
+
+### Changed
+- **`skills/visual-spec/SKILL.md`** — Phase 1 step 8 validates `proposal.frontmatter.style_treatment ∈ {"additive", "unified", "collage", "wash"}` (Err #4); Phase 3 C.prompt derivation reads `style_treatment` and writes corresponding `negative_prompt` constraints; S4 invariant extended to cover `C.style_treatment` immutability across session.
+
+### Upstream context (not plugin-affecting)
+- vulca main Python package v0.17.11 also ships: provider error message normalization (Gemini/OpenAI/ComfyUI user-readable), MCP `create_artwork.ref_type` BREAKING removal, layers_split/layers_edit docstring fixes, hardcoded-path cleanup, README "Quick start" honesty, BP §5.4 moat softening, `.gitignore` hygiene. See https://github.com/vulca-org/vulca/releases/tag/v0.17.11 for the full package notes.
+
+### Known v0.17.12 gap
+`/visual-plan` Phase 3 does NOT yet read `C.style_treatment` in its generate-loop. The field is written to design.md + informs `/visual-spec` C.prompt's `negative_prompt`, but downstream propagation to pixel execution is deferred. Both parallel reviewers (codex + superpowers) agreed this is survivable for v0.17.11 because the `style_treatment` directive already rides in the composed `base_prompt` via `/visual-spec` governance — just not formally enforced.
+
+### Upstream ship state
+- PyPI: https://pypi.org/project/vulca/0.17.11/
+- GH release: https://github.com/vulca-org/vulca/releases/tag/v0.17.11
+- Full repo tests: 1920 passed / 12 pre-existing baseline failures / zero regressions.
+
 ## v0.17.10 — 2026-04-23
 
 Catch-up release bundling v0.17.8 + v0.17.10 skill updates (supersedes PR #6). Plugin main was at v0.17.7; this brings it to v0.17.10 in a single merge.
