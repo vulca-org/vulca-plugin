@@ -61,7 +61,7 @@ Observed on 2026-05-01: Claude marketplace and plugin manifest validation passed
 This repository is also packaged as a Gemini CLI extension. Users can install the public repository directly:
 
 ```bash
-pip install "vulca[mcp]==0.23.0"
+pip install "vulca[mcp] @ git+https://github.com/vulca-org/vulca.git@v0.23.0"
 gemini extensions install vulca-org/vulca-plugin
 ```
 
@@ -72,7 +72,7 @@ The Gemini extension loads `GEMINI.md` as persistent context and starts the `vul
 This repository is also packaged as a Codex-compatible plugin marketplace. Users can install the public repository directly:
 
 ```bash
-pip install "vulca[mcp]==0.23.0"
+pip install "vulca[mcp] @ git+https://github.com/vulca-org/vulca.git@v0.23.0"
 codex marketplace add https://github.com/vulca-org/vulca-plugin
 ```
 
