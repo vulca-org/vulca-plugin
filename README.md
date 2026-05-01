@@ -38,6 +38,23 @@ gemini extensions link .
 
 Gemini provider-backed workflows require your own Gemini authentication, for example `GEMINI_API_KEY`, and remain explicit opt-in.
 
+## Codex Desktop / CLI Install
+
+Codex can install this repository as a plugin marketplace. The plugin bundles the same skills and local `vulca-mcp` server configuration for Codex Desktop and Codex CLI.
+
+```bash
+pip install "vulca[mcp]==0.19.0"
+codex marketplace add https://github.com/vulca-org/vulca-plugin
+```
+
+For local development:
+
+```bash
+codex marketplace add .
+```
+
+This is a Codex-compatible marketplace package. OpenAI's official public Codex plugin directory submission flow is not documented as a public form at this time.
+
 ## Skills
 
 | Skill | Purpose |
@@ -71,7 +88,7 @@ Redraw and inpaint tools are available as advanced MCP workflows in the SDK. The
 
 Vulca works with local image files and optional external image providers. When you opt into a real provider, prompts, images, and provider metadata may leave your machine depending on that provider's configuration and terms. Keep generation, editing, and VLM-backed evaluation explicit.
 
-See [PRIVACY.md](PRIVACY.md) for submission-ready privacy notes and [SUBMISSION.md](SUBMISSION.md) for marketplace copy and validation commands. See [GEMINI.md](GEMINI.md) and [gemini-extension.json](gemini-extension.json) for Gemini CLI extension packaging.
+See [PRIVACY.md](PRIVACY.md) for submission-ready privacy notes and [SUBMISSION.md](SUBMISSION.md) for marketplace copy and validation commands. See [GEMINI.md](GEMINI.md), [gemini-extension.json](gemini-extension.json), and [.codex-plugin/plugin.json](.codex-plugin/plugin.json) for Gemini CLI and Codex packaging.
 
 ## License
 

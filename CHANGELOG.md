@@ -4,6 +4,7 @@
 
 ### Added
 - Gemini CLI extension packaging with `gemini-extension.json` and `GEMINI.md`.
+- Codex plugin packaging with `.codex-plugin/plugin.json` and `.agents/plugins/marketplace.json`.
 - Gemini CLI installation and validation notes in `README.md` and `SUBMISSION.md`.
 
 ### Changed
