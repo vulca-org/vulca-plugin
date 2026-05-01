@@ -1,5 +1,24 @@
 # Changelog
 
+## v0.19.0 — 2026-05-01
+
+Platform-distribution sync from Vulca main v0.19.0.
+
+### Added
+- **`skills/visual-discovery/SKILL.md`** — upstream fuzzy-intent workflow for taste profile, direction cards, prompt artifacts, and visual-brainstorm handoff.
+- **`skills/evaluate/SKILL.md`** — user-facing evaluation workflow over existing Vulca cultural and visual scoring.
+- Portable MCP configuration using `vulca-mcp` from `PATH`.
+
+### Changed
+- **`skills/decompose/SKILL.md`**, **`skills/visual-brainstorm/SKILL.md`**, **`skills/visual-spec/SKILL.md`**, **`skills/visual-plan/SKILL.md`**, and **`skills/using-vulca-skills/SKILL.md`** synced from Vulca main v0.19.0.
+- Plugin manifest now positions Vulca as visual control for discovery, prompt structure, provider routing, semantic layers, redraw, and cultural evaluation.
+- README and marketplace copy no longer hard-code stale MCP tool counts or present redraw as a polished top-level skill.
+
+### Release posture
+- Lead marketplace copy with `/visual-discovery`, `/visual-brainstorm`, `/visual-spec`, `/visual-plan`, `/decompose`, and `/evaluate`.
+- Keep redraw and inpaint as advanced SDK/MCP workflows until real-image target-aware redraw evidence is reviewed.
+- Real-provider generation, editing, and VLM-backed evaluation remain explicit opt-in.
+
 ## v0.17.11 — 2026-04-23
 
 Honesty + quality-of-life patch. Plugin-side changes mirror only the skill updates from vulca main v0.17.11 (code-level provider error normalization + MCP `create_artwork.ref_type` removal + README/BP honesty are shipped in the Python package, not the plugin).
