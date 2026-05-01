@@ -78,6 +78,64 @@ codex marketplace add https://github.com/vulca-org/vulca-plugin
 
 The Codex plugin manifest is `.codex-plugin/plugin.json`, and the marketplace entry is `.agents/plugins/marketplace.json`.
 
+## OpenAI App Review Packet
+
+OpenAI submission URL: https://platform.openai.com/apps-manage
+
+Use this packet when creating or updating the Vulca ChatGPT app draft. Do not submit for review until the MCP server is hosted on a stable public domain; OpenAI's review flow does not accept local or testing endpoints.
+
+### App Metadata
+
+- App name: `Vulca`
+- Developer / company name: `Vulca`
+- Category: `Productivity`
+- Logo file: `assets/vulca-icon.png`
+- Logo URL: https://raw.githubusercontent.com/vulca-org/vulca-plugin/main/assets/vulca-icon.png
+- Repository URL: https://github.com/vulca-org/vulca-plugin
+- SDK / MCP server URL: https://github.com/vulca-org/vulca
+- Website URL: https://vulcaart.art
+- Privacy policy URL: https://github.com/vulca-org/vulca-plugin/blob/main/PRIVACY.md
+
+### Short Description
+
+Agent-native visual control for discovery, structured prompts, semantic layers, and L1-L5 cultural evaluation.
+
+### Long Description
+
+Vulca helps ChatGPT and Codex users turn fuzzy visual intent into auditable creative work: visual discovery, direction cards, structured prompts, semantic layer decomposition, and L1-L5 cultural or quality evaluation. It is local-first by default, and provider-backed generation, editing, and VLM evaluation remain explicit opt-in workflows.
+
+### MCP Server
+
+- Production MCP URL: `https://mcp.vulcaart.art/mcp` once deployed.
+- Temporary development URL: do not submit for review with a localhost, tunnel, or other testing endpoint.
+- Authentication: unauthenticated is acceptable only for a narrow read-only/testing draft. Production should use OAuth or a scoped auth layer before public review.
+
+### Tool Summary
+
+- `list_traditions`: list available cultural and design traditions.
+- `get_tradition_guide`: return a concise guide for one tradition.
+- `search_traditions`: search tradition names and terminology.
+- `compose_prompt_from_design`: turn a resolved design brief into a provider-aware prompt.
+- `evaluate_artwork`: evaluate an image or image brief against a tradition and L1-L5 criteria.
+
+### Test Prompts
+
+1. `Use Vulca to list available visual traditions.`
+   - Expected: returns traditions such as `chinese_xieyi`, `japanese_traditional`, `western_academic`, `photography`, `brand_design`, and `ui_ux_design`.
+2. `Use Vulca to explain what Chinese xieyi emphasizes for an ink landscape.`
+   - Expected: summarizes expressive brushwork, negative space, qi/spirit resonance, and tradition-specific composition guidance.
+3. `Use Vulca to compose a prompt for a Scottish-Chinese fusion festival poster with warm lantern light and Edinburgh street context.`
+   - Expected: returns a structured, provider-aware prompt with visual intent, cultural constraints, and safety notes.
+4. `Use Vulca to evaluate whether this concept fits Chinese xieyi: misty mountains, sparse pavilion, heavy neon gradients.`
+   - Expected: identifies xieyi-aligned elements, flags the neon gradients as likely departure, and gives L1-L5 style guidance.
+
+### Review Notes
+
+- Vulca does not host a foundation image model.
+- It coordinates local or user-configured providers and returns structured artifacts.
+- Do not market redraw or inpaint as guaranteed polished one-click workflows; they are advanced explicit opt-in tools.
+- Privacy policy must disclose local file access and optional provider upload behavior.
+
 ## Screenshot Checklist
 
 - Plugin visible in Claude Code plugin UI.
