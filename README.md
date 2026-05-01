@@ -53,6 +53,8 @@ Redraw and inpaint tools are available as advanced MCP workflows in the SDK. The
 
 Vulca works with local image files and optional external image providers. When you opt into a real provider, prompts, images, and provider metadata may leave your machine depending on that provider's configuration and terms. Keep generation, editing, and VLM-backed evaluation explicit.
 
+See [PRIVACY.md](PRIVACY.md) for submission-ready privacy notes and [SUBMISSION.md](SUBMISSION.md) for marketplace copy and validation commands.
+
 ## License
 
 Apache-2.0
