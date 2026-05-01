@@ -1,15 +1,20 @@
 {
-  "name": "vulca-marketplace",
+  "name": "vulca-plugins",
   "owner": {
-    "name": "Yu Haorui",
-    "email": "yuhaorui48@gmail.com"
+    "name": "Vulca maintainers"
+  },
+  "metadata": {
+    "description": "Agent-native visual control workflows for Claude Code.",
+    "version": "0.19.0"
   },
   "plugins": [
     {
       "name": "vulca",
       "source": "./",
-      "description": "Agent-native image-editing MCP surface for Claude Code & Cursor. 21 MCP tools + 2 skills (/decompose, /visual-brainstorm).",
-      "version": "0.17.3"
+      "description": "Visual discovery, decomposition, planning, and cultural evaluation workflows for Claude Code.",
+      "version": "0.19.0",
+      "category": "creative-workflows",
+      "tags": ["visual-control", "image-generation", "mcp", "creative-direction"]
     }
   ]
 }

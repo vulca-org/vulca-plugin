@@ -1,7 +1,8 @@
 {
-  "vulca": {
-    "command": "uvx",
-    "args": ["--from", "vulca[mcp]", "vulca-mcp"],
-    "env": {}
+  "mcpServers": {
+    "vulca": {
+      "command": "vulca-mcp",
+      "args": []
+    }
   }
 }

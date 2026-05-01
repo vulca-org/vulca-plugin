@@ -1,61 +1,58 @@
-# VULCA — Claude Code & Cursor Plugin
+# Vulca Claude Code Plugin
 
-Agent-native image-editing MCP surface. **21 MCP tools + 2 skills (`/decompose`, `/visual-brainstorm`)** for Claude Code and Cursor. v0.17.3 (tracks vulca SDK v0.17.3; 1454 tests).
+Vulca is an agent-native visual control layer for Claude Code. It turns fuzzy creative intent into reviewable direction cards, structured prompts, semantic layers, provider-routed image work, and L1-L5 cultural evaluation.
+
+This plugin tracks the Vulca SDK v0.19.0 package shape.
 
 ## Install
 
 ```bash
-pip install vulca[mcp]==0.17.3
+pip install "vulca[mcp]==0.19.0"
 claude plugin install vulca-org/vulca-plugin
 ```
 
-For real image generation: either run [ComfyUI](https://github.com/comfyanonymous/ComfyUI) locally (free) or set `GOOGLE_API_KEY` for Gemini. Mock mode works without either.
+For local development, you can validate this repository directly:
 
-## What happens in Claude Code
+```bash
+claude plugin validate .
+claude --plugin-dir .
+```
 
-**You:** `> /decompose /path/to/painting.jpg`
+The bundled MCP configuration starts `vulca-mcp` from your `PATH`. Configure provider API keys only when you explicitly want real-provider generation, editing, or evaluation. Mock/no-cost workflows work without external provider keys.
 
-**Claude:** Reads the image with `view_image`, authors a decomposition plan, calls `layers_split(mode="orchestrated", plan=...)`, returns one transparent PNG per entity. Iterates per the skill's 10-branch decision tree if segmentation fails on a specific entity.
+## Skills
 
-## MCP Tools (21)
+| Skill | Purpose |
+| --- | --- |
+| `/decompose` | Decompose an image into semantic transparent layers. |
+| `/visual-discovery` | Turn fuzzy visual intent into taste profile, direction cards, and prompt artifacts. |
+| `/visual-brainstorm` | Convert a selected direction into a reviewable proposal. |
+| `/visual-spec` | Resolve provider, prompt, threshold, and cost decisions into `design.md`. |
+| `/visual-plan` | Execute planned generation/evaluation iterations from `design.md`. |
+| `/evaluate` | Evaluate an existing image against Vulca's cultural and visual rubric. |
+| `/using-vulca-skills` | Meta-skill that guides when Claude should invoke the Vulca workflow skills. |
 
-| Tool | Description |
-|------|-------------|
-| `generate_image` | Pure image generation (no evaluation loop) |
-| `create_artwork` | Single-pass cultural-guided creation + evaluate |
-| `inpaint_artwork` | Region-based inpainting |
-| `view_image` | Read image metadata + base64 for the agent |
-| `evaluate_artwork` | L1–L5 cultural scoring against a tradition |
-| `list_traditions` | List all 13 cultural traditions |
-| `get_tradition_guide` | Detailed tradition reference |
-| `search_traditions` | Keyword search across tradition knowledge |
-| `layers_split` | Decompose an image into semantic layers (orchestrated mode for `/decompose`) |
-| `layers_list` | List layers in a session directory |
-| `layers_edit` | Structural edits (add/remove/reorder/toggle/lock/merge/duplicate) |
-| `layers_redraw` | Redraw one layer with new instructions |
-| `layers_transform` | Apply transform ops to a layer |
-| `layers_composite` | Composite layers back into a flat image |
-| `layers_export` | Export to PNG directory with manifest |
-| `layers_evaluate` | Per-layer L1–L5 evaluation |
-| `brief_parse` | Parse a creative brief into structured form |
-| `generate_concepts` | Generate N concept variation images from a prompt |
-| `archive_session` | Archive a completed session for tradition-learning feedback |
-| `sync_data` | Sync sessions + evolved weights |
-| `unload_models` | Admin: release model memory (MPS/CUDA) |
+## Positioning
 
-## Skills (2)
+Vulca does not host a foundation image model and does not promise one-click image quality. It coordinates provider-backed workflows through auditable artifacts:
 
-| Skill | Trigger | What it does |
-|-------|---------|--------------|
-| `/decompose` | "decompose /path/img.jpg" | Loads SKILL.md, reads image, orchestrates `layers_split`, iterates per decision tree |
-| `/visual-brainstorm` | "visual-brainstorm [topic]" | Turns fuzzy visual intent into a reviewable `proposal.md`. Zero-pixel, Discovery-metadata only. Scoped to 2D illustrative/editorial imagery. See `skills/visual-brainstorm/SKILL.md`. |
+```text
+discovery.md
+taste_profile.json
+direction_cards.json
+proposal.md
+design.md
+plan.md
+manifest.json
+evaluation.json
+```
 
-## Requirements
+Redraw and inpaint tools are available as advanced MCP workflows in the SDK. They should not be marketed as polished top-level user skills until target-aware redraw evidence has been reviewed on real images.
 
-- Python 3.10+
-- `uv` installed for the default MCP runner (`uvx --from vulca[mcp] vulca-mcp`)
-- `pip install vulca[mcp]==0.17.3`
+## Privacy
+
+Vulca works with local image files and optional external image providers. When you opt into a real provider, prompts, images, and provider metadata may leave your machine depending on that provider's configuration and terms. Keep generation, editing, and VLM-backed evaluation explicit.
 
 ## License
 
-Apache 2.0
+Apache-2.0
