@@ -18,7 +18,7 @@ Repository links:
 ## Claude Code Install
 
 ```bash
-pip install "vulca[mcp]==0.23.0"
+pip install "vulca[mcp] @ git+https://github.com/vulca-org/vulca.git@v0.23.0"
 claude plugin install vulca-org/vulca-plugin
 ```
 
@@ -36,7 +36,7 @@ The bundled MCP configuration starts `vulca-mcp` from your `PATH`. Configure pro
 Gemini CLI can install this repository as an extension. The extension bundles persistent `GEMINI.md` context and starts the same local Vulca MCP server.
 
 ```bash
-pip install "vulca[mcp]==0.23.0"
+pip install "vulca[mcp] @ git+https://github.com/vulca-org/vulca.git@v0.23.0"
 gemini extensions install vulca-org/vulca-plugin
 ```
 
@@ -54,7 +54,7 @@ Gemini provider-backed workflows require your own Gemini authentication, for exa
 Codex can install this repository as a plugin marketplace. The plugin bundles the same skills and local `vulca-mcp` server configuration for Codex Desktop and Codex CLI.
 
 ```bash
-pip install "vulca[mcp]==0.23.0"
+pip install "vulca[mcp] @ git+https://github.com/vulca-org/vulca.git@v0.23.0"
 codex marketplace add https://github.com/vulca-org/vulca-plugin
 ```
 
