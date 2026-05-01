@@ -1,10 +1,10 @@
-# Vulca Claude Code Plugin
+# Vulca Agent Plugin
 
-Vulca is an agent-native visual control layer for Claude Code. It turns fuzzy creative intent into reviewable direction cards, structured prompts, semantic layers, provider-routed image work, and L1-L5 cultural evaluation.
+Vulca is an agent-native visual control layer for Claude Code and Gemini CLI. It turns fuzzy creative intent into reviewable direction cards, structured prompts, semantic layers, provider-routed image work, and L1-L5 cultural evaluation.
 
 This plugin tracks the Vulca SDK v0.19.0 package shape.
 
-## Install
+## Claude Code Install
 
 ```bash
 pip install "vulca[mcp]==0.19.0"
@@ -19,6 +19,24 @@ claude --plugin-dir .
 ```
 
 The bundled MCP configuration starts `vulca-mcp` from your `PATH`. Configure provider API keys only when you explicitly want real-provider generation, editing, or evaluation. Mock/no-cost workflows work without external provider keys.
+
+## Gemini CLI Install
+
+Gemini CLI can install this repository as an extension. The extension bundles persistent `GEMINI.md` context and starts the same local Vulca MCP server.
+
+```bash
+pip install "vulca[mcp]==0.19.0"
+gemini extensions install vulca-org/vulca-plugin
+```
+
+For local development:
+
+```bash
+gemini extensions validate .
+gemini extensions link .
+```
+
+Gemini provider-backed workflows require your own Gemini authentication, for example `GEMINI_API_KEY`, and remain explicit opt-in.
 
 ## Skills
 
@@ -53,7 +71,7 @@ Redraw and inpaint tools are available as advanced MCP workflows in the SDK. The
 
 Vulca works with local image files and optional external image providers. When you opt into a real provider, prompts, images, and provider metadata may leave your machine depending on that provider's configuration and terms. Keep generation, editing, and VLM-backed evaluation explicit.
 
-See [PRIVACY.md](PRIVACY.md) for submission-ready privacy notes and [SUBMISSION.md](SUBMISSION.md) for marketplace copy and validation commands.
+See [PRIVACY.md](PRIVACY.md) for submission-ready privacy notes and [SUBMISSION.md](SUBMISSION.md) for marketplace copy and validation commands. See [GEMINI.md](GEMINI.md) and [gemini-extension.json](gemini-extension.json) for Gemini CLI extension packaging.
 
 ## License
 

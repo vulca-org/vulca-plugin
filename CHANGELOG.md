@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.19.0-gemini-extension — 2026-05-01
+
+### Added
+- Gemini CLI extension packaging with `gemini-extension.json` and `GEMINI.md`.
+- Gemini CLI installation and validation notes in `README.md` and `SUBMISSION.md`.
+
+### Changed
+- Align `/vulca:evaluate` redraw next-action wording with the main SDK repository.
+
 ## v0.19.0 — 2026-05-01
 
 Platform-distribution sync from Vulca main v0.19.0.

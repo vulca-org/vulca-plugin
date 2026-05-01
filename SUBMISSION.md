@@ -41,12 +41,25 @@ Run from this repository:
 ```bash
 claude plugin validate .
 claude plugin validate .claude-plugin/plugin.json
+gemini extensions validate .
 python3 -m json.tool .claude-plugin/plugin.json
 python3 -m json.tool .claude-plugin/marketplace.json
 python3 -m json.tool .mcp.json
+python3 -m json.tool gemini-extension.json
 ```
 
-Observed on 2026-05-01: Claude marketplace and plugin manifest validation passed.
+Observed on 2026-05-01: Claude marketplace and plugin manifest validation passed; Gemini CLI extension validation passed.
+
+## Gemini CLI Extension
+
+This repository is also packaged as a Gemini CLI extension. Users can install the public repository directly:
+
+```bash
+pip install "vulca[mcp]==0.19.0"
+gemini extensions install vulca-org/vulca-plugin
+```
+
+The Gemini extension loads `GEMINI.md` as persistent context and starts the `vulca-mcp` server from `PATH`.
 
 ## Screenshot Checklist
 
