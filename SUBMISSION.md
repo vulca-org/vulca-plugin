@@ -6,6 +6,7 @@
 **License:** Apache-2.0
 **Logo:** assets/vulca-icon.svg
 **Logo URL:** https://raw.githubusercontent.com/vulca-org/vulca-plugin/main/assets/vulca-icon.svg
+**PNG Logo URL:** https://raw.githubusercontent.com/vulca-org/vulca-plugin/main/assets/vulca-icon.png
 
 ## One-Liner
 
