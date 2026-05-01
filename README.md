@@ -13,6 +13,7 @@ Repository links:
 - SDK / CLI / MCP server: [vulca-org/vulca](https://github.com/vulca-org/vulca)
 - Plugin package: [vulca-org/vulca-plugin](https://github.com/vulca-org/vulca-plugin)
 - Web platform / demo: [vulcaart.art](https://vulcaart.art)
+- Directory logo: [`assets/vulca-icon.svg`](assets/vulca-icon.svg)
 
 ## Claude Code Install
 

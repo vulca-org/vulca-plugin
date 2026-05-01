@@ -4,7 +4,8 @@
 **Version:** 0.23.0
 **Repository:** https://github.com/vulca-org/vulca-plugin
 **License:** Apache-2.0
-**Logo:** assets/vulca-logo.svg
+**Logo:** assets/vulca-icon.svg
+**Logo URL:** https://raw.githubusercontent.com/vulca-org/vulca-plugin/main/assets/vulca-icon.svg
 
 ## One-Liner
 
