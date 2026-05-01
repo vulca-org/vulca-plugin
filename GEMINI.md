@@ -5,7 +5,7 @@ Vulca is an agent-native visual control layer. Use the `vulca` MCP server when t
 The extension expects the `vulca-mcp` command to be available on `PATH`, usually from:
 
 ```bash
-pip install "vulca[mcp]==0.19.0"
+pip install "vulca[mcp]==0.23.0"
 ```
 
 Prefer no-cost or local workflows first:

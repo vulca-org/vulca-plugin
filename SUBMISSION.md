@@ -1,9 +1,10 @@
 # Claude Plugin Submission Packet
 
 **Plugin name:** Vulca
-**Version:** 0.19.0
+**Version:** 0.23.0
 **Repository:** https://github.com/vulca-org/vulca-plugin
 **License:** Apache-2.0
+**Logo:** assets/vulca-logo.svg
 
 ## One-Liner
 
@@ -58,7 +59,7 @@ Observed on 2026-05-01: Claude marketplace and plugin manifest validation passed
 This repository is also packaged as a Gemini CLI extension. Users can install the public repository directly:
 
 ```bash
-pip install "vulca[mcp]==0.19.0"
+pip install "vulca[mcp]==0.23.0"
 gemini extensions install vulca-org/vulca-plugin
 ```
 
@@ -69,7 +70,7 @@ The Gemini extension loads `GEMINI.md` as persistent context and starts the `vul
 This repository is also packaged as a Codex-compatible plugin marketplace. Users can install the public repository directly:
 
 ```bash
-pip install "vulca[mcp]==0.19.0"
+pip install "vulca[mcp]==0.23.0"
 codex marketplace add https://github.com/vulca-org/vulca-plugin
 ```
 
